@@ -1,0 +1,12 @@
+#!/bin/sh
+SCRIPT=`realpath $0`
+SCRIPTPATH=`dirname $SCRIPT`
+NEW_SCRIPT_PATH=$SCRIPTPATH/create_$1
+
+
+echo #!/bin/sh > $NEW_SCRIPT_PATH
+echo docker create --name $1 $2 >> $NEW_SCRIPT_PATH
+
+chmod +x $NEW_SCRIPT_PATH
+
+sudo ln -s $NEW_SCRIPT_PATH /bin

@@ -1,0 +1,7 @@
+#!/bin/sh
+SCRIPT=`realpath $0`
+SCRIPTPATH=`dirname $SCRIPT`
+MOUNTS_PATH=$SCRIPTPATH/../mounts
+
+mkdir $2 && mount -t vboxsf $1 $2
+echo "mkdir $2 && mount -t vboxsf $1 $2" >> $MOUNTS_PATH
